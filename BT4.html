@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>S hình chữ nhật</title>
+</head>
+<body>
+<h2>Tính S hình chữ nhật</h2>
+<input type="number" id="a" placeholder="nhập a">
+<input type="number" id="b" placeholder="nhập b">
+<input type="button" value="Tính" onclick="scn()">
+<p id="result"></p>
+
+<script>
+  function scn(){
+    let a = parseInt(document.getElementById("a").value);
+    let b = parseInt(document.getElementById("b").value);
+    let result = a*b;
+      if(result > 0){
+        document.getElementById("result").innerHTML = result + 'mét vuông';
+      }
+      else {
+        document.getElementById("result").innerHTML = 'Vui lòng nhập đúng giá trị của a và b';
+      }
+
+  }
+</script>
+</body>
+</html>

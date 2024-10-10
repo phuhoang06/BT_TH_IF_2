@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi C Sang F</title>
+</head>
+<body>
+<h2>Đổi °C Sang °F</h2>
+<input type="number" id="Na" placeholder="Nhập vào đây">
+<select id="No">
+  <option value="1">Độ C</option>
+  <option value="2">Độ F</option>
+</select>
+<button onclick="chuyendoi()">Chuyển đổi</button>
+
+<p id="result"></p>
+
+<script>
+    function chuyendoi() {
+        const input = document.getElementById('Na').value;
+        const select = document.getElementById('No').value;
+        let result;
+
+        if (select === '1') {
+            result = (input * 9/5) + 32;
+            document.getElementById('result').innerText = `${input} °C = ${result} °F`;
+        } else if (select === '2') {
+            result = (input - 32) * 5/9;
+            document.getElementById('result').innerText = `${input} °F = ${result} °C`;
+        } else {
+            document.getElementById('result').innerText = 'Vui lòng chọn một đơn vị.';
+        }
+    }
+</script>
+
+
+</body>
+</html>

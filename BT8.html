@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số tuổi của một người</title>
+</head>
+<body>
+<h2>Số tuổi của một người </h2>
+<input type="number" id="old" placeholder="nhập tuổi vào đây!">
+<input type="button" value="Kiểm tra" onclick="ktraold()">
+<p id="result"></p>
+<script>
+  function ktraold() {
+    let old = parseFloat(document.getElementById("old").value);
+    if (old<0){
+      document.getElementById("result").innerHTML = "mày là người âm phủ ";
+    }
+    else if (old>=0 && old<=120){
+        document.getElementById('result').innerText = 'wow con người'
+    }
+    else {
+        document.getElementById('result').innerText = 'Bất tử nhân'
+    }
+  }
+</script>
+</body>
+</html>

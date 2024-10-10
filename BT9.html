@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số thực</title>
+</head>
+<body>
+<input type="number" id="a" placeholder="Nhập a">
+<input type="number" id="b" placeholder="Nhập b">
+<input type="number" id="c" placeholder="Nhập c">
+<input type="button" value="Kiểm tra" onclick="kiem()">
+<p id="result"></p>
+
+<script>
+    function kiem() {
+        let a = parseFloat(document.getElementById("a").value);
+        let b = parseFloat(document.getElementById("b").value);
+        let c = parseFloat(document.getElementById("c").value);
+
+        // Kiểm tra điều kiện số dương
+        if (a > 0 && b > 0 && c > 0) {
+            // Kiểm tra bất đẳng thức tam giác
+            if (a + b > c && b + c > a && a + c > b) {
+                document.getElementById('result').innerText = '3 số trên là cạnh của một tam giác';
+            } else {
+                document.getElementById('result').innerText = '3 số trên không phải là cạnh của một tam giác';
+            }
+        } else {
+            document.getElementById('result').innerText = 'Các cạnh phải lớn hơn 0';
+        }
+    }
+</script>
+</body>
+</html>

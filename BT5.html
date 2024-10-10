@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>S tam giác vuông</title>
+</head>
+<body>
+<h2>Tính S tam giác vuông</h2>
+<input type="number" id="a" placeholder="nhập a">
+<input type="number" id="b" placeholder="nhập b">
+<input type="button" value="Tính" onclick="stgv()">
+<p id="result"></p>
+<script>
+  function stgv(){
+    let a = parseInt(document.getElementById("a").value);
+    let b = parseInt(document.getElementById("b").value);
+    let result = (a*b)/2
+    if (result > 0) {
+      document.getElementById("result").innerText = result + 'mét vuông';
+    }else {
+      document.getElementById("result").innerText = 'Vui lòng nhập lại hai giá trị a và b'
+    }
+  }
+</script>
+</body>
+</html>

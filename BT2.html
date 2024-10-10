@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chuyển từ mét sang feet</title>
+</head>
+<body>
+<h2>Chuyển từ mét sang feet</h2>
+<input type="number" id="M" placeholder="Nhập vào đây">
+<select>
+  <option value="1">Mét</option>
+</select>
+<button onclick="chuyendoi1()">Chuyển đổi</button>
+
+<p id="result"></p>
+
+<script>
+  function chuyendoi1() {
+    let input = parseInt(document.getElementById('M').value);
+    let result = input * 3.2808;
+    if (input >= 0) {
+      document.getElementById('result').innerText = result + ' feet'; // Hiển thị kết quả
+    } else {
+      document.getElementById('result').innerText = 'Vui lòng nhập giá trị hợp lệ!'; // Thông báo nếu nhập số âm
+    }
+  }
+</script>
+</body>
+</html>

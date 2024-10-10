@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>S hình vuông</title>
+</head>
+<body>
+<h2>Tính S hình vuông</h2>
+<script>
+    function Svuong(){
+        let x = parseInt(document.getElementById("dodai").value);
+        let s = x*x;
+        if (x > 0){
+            document.getElementById('s').innerText = s + 'mét vuông';
+        }
+        else {
+            document.getElementById('s').innerText = 'Vui lòng nhập đúng giá trị của a'
+        }
+    }
+</script>
+
+<input type="number" id="dodai" placeholder="Nhập a">
+<input type="button" value="Tính" onclick="Svuong()" >
+<p id="s" style="color: red;"></p>
+</body>
+</html>

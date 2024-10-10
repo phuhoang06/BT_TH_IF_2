@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Giải Phương Trình Bậc 1</title>
+</head>
+<body>
+<h2>Giải phương trình bậc 1: ax + b = 0</h2>
+<input type="number" id="a" placeholder="Nhập a">
+<input type="number" id="b" placeholder="Nhập b">
+<button onclick="giaiPhuongTrinh()">Giải phương trình</button>
+<p id="result"></p>
+
+<script>
+  function giaiPhuongTrinh() {
+    let a = parseInt(document.getElementById('a').value);
+    let b = parseInt(document.getElementById('b').value);
+
+    let result = '';
+
+    if (a === 0) {
+      if (b === 0) {
+        result = 'Phương trình có vô số nghiệm (vì 0x = 0).';
+      } else {
+        result = 'Phương trình vô nghiệm (vì 0x + b = 0 mà b ≠ 0).';
+      }
+    } else {
+      const x = -b / a;
+      result = 'Nghiệm của phương trình là x = ' + x;
+    }
+
+    document.getElementById('result').innerText = result;
+  }
+</script>
+</body>
+</html>

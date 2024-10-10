@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính lãi ngân hàng</title>
+</head>
+<body>
+<h2>Tính lãi ngân hàng (lãi mẹ đẻ lãi con)</h2>
+<input type="number" id="tienGoc" placeholder="Nhập số tiền ban đầu (VND)" min="0">
+<input type="number" id="soThang" placeholder="Nhập số tháng cho vay" min="1">
+<input type="number" id="laiSuat" placeholder="Nhập lãi suất hàng tháng (%)" min="0" step="0.01">
+<input type="button" value="Tính lãi" onclick="tinhLaiNganHang()">
+<p id="result"></p>
+
+<script>
+  function tinhLaiNganHang() {
+    let tienGoc = parseFloat(document.getElementById("tienGoc").value);
+    let soThang = parseInt(document.getElementById("soThang").value);
+    let laiSuat = parseFloat(document.getElementById("laiSuat").value);
+
+    // Kiểm tra điều kiện đầu vào
+    if (isNaN(tienGoc) || isNaN(soThang) || isNaN(laiSuat) || tienGoc <= 0 || soThang <= 0 || laiSuat < 0) {
+      document.getElementById("result").innerText = "Các giá trị nhập vào phải hợp lệ.";
+      return;
+    }
+
+    // Chuyển đổi lãi suất sang số thập phân
+    laiSuat /= 100;
+
+    // Tính số tiền cuối cùng
+    let soTienCuoiCung = tienGoc * Math.pow((1 + laiSuat), soThang);
+    let laiThuDuoc = soTienCuoiCung - tienGoc; // Lãi thu được
+
+    document.getElementById("result").innerText = `Số tiền cuối cùng: ${soTienCuoiCung.toLocaleString()} VND\nLãi thu được: ${laiThuDuoc.toLocaleString()} VND`;
+  }
+</script>
+</body>
+</html>

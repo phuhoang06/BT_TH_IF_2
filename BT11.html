@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính thuế thu nhập cá nhân</title>
+</head>
+<body>
+<h2>Tính thuế thu nhập cá nhân</h2>
+<input type="number" id="income" placeholder="Nhập thu nhập tháng (VND)">
+<input type="number" id="deductions" placeholder="Nhập các khoản giảm trừ (VND)">
+<input type="button" value="Tính thuế" onclick="tinhThueTNCN()">
+<p id="result"></p>
+
+<script>
+  function tinhThueTNCN() {
+    let income = parseFloat(document.getElementById("income").value);
+    let deductions = parseFloat(document.getElementById("deductions").value);
+    let thuNhapTinhThue = income - deductions; // Tính thu nhập tính thuế
+    let thue = 0;
+
+    if (thuNhapTinhThue <= 0) {
+      document.getElementById("result").innerText = "Thu nhập tính thuế phải lớn hơn 0.";
+      return;
+    }
+
+    // Tính thuế theo bậc
+    if (thuNhapTinhThue <= 5000000) {
+      thue = 0;
+    } else if (thuNhapTinhThue <= 10000000) {
+      thue = (thuNhapTinhThue - 5000000) * 0.05;
+    } else if (thuNhapTinhThue <= 18000000) {
+      thue = (5000000 * 0.05) + (thuNhapTinhThue - 10000000) * 0.1;
+    } else if (thuNhapTinhThue <= 32000000) {
+      thue = (5000000 * 0.05) + (8000000 * 0.1) + (thuNhapTinhThue - 18000000) * 0.15;
+    } else if (thuNhapTinhThue <= 52000000) {
+      thue = (5000000 * 0.05) + (8000000 * 0.1) + (14000000 * 0.15) + (thuNhapTinhThue - 32000000) * 0.2;
+    } else if (thuNhapTinhThue <= 80000000) {
+      thue = (5000000 * 0.05) + (8000000 * 0.1) + (14000000 * 0.15) + (20000000 * 0.2) + (thuNhapTinhThue - 52000000) * 0.25;
+    } else if (thuNhapTinhThue <= 322000000) {
+      thue = (5000000 * 0.05) + (8000000 * 0.1) + (14000000 * 0.15) + (20000000 * 0.2) + (28000000 * 0.25) + (thuNhapTinhThue - 80000000) * 0.3;
+    } else {
+      thue = (5000000 * 0.05) + (8000000 * 0.1) + (14000000 * 0.15) + (20000000 * 0.2) + (28000000 * 0.25) + (242000000 * 0.3) + (thuNhapTinhThue - 322000000) * 0.35;
+    }
+
+    document.getElementById("result").innerText = `Thuế thu nhập cá nhân phải nộp: ${thue.toLocaleString()} VND`;
+  }
+</script>
+</body>
+</html>
